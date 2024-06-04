@@ -1,8 +1,26 @@
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import SignIn from './pages/Sign-in';
+import SignUp from './pages/Sign-up';
+import Dashboard from './pages/Dashboard';
+import Projects from './pages/Projects'
+
 function App() {
+ 
 
   return (
-    <div className='text-xl'>Jai Shree Ram</div>
+   <BrowserRouter >
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/sign-in' element={<SignIn/>}/>
+        <Route path='/sign-up' element={<SignUp/>}/>
+        <Route path='/dashboard' element={ < Dashboard /> } />
+        <Route path='/projects' element={ <Projects />} />
+      </Routes>
+   </BrowserRouter>
   )
 }
 
-export default App;
+export default App
