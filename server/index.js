@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 import mongoose from "mongoose";
 import env from 'dotenv';
+import userRoutes from './routes/user.js';
+
+
 env.config();
 
 
@@ -14,6 +17,7 @@ mongoose.connect(uri).then(() => {
 });
 
 
+app.use('/api/user', userRoutes);
 
 
 app.listen(port, (err) => {
@@ -23,3 +27,5 @@ app.listen(port, (err) => {
 
     console.log(`Server is running on http://localhost:${port}`);
 })
+
+
