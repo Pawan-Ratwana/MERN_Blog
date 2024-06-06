@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 import mongoose from "mongoose";
 import env from 'dotenv';
-import userRoutes from './routes/user.js';
+import apiRoutes from './routes/api.js';
 
 
 env.config();
@@ -17,7 +17,7 @@ mongoose.connect(uri).then(() => {
 });
 
 
-app.use('/api/user', userRoutes);
+app.use('/api/', apiRoutes);
 
 
 app.listen(port, (err) => {
