@@ -4,6 +4,8 @@ const port = 3000;
 import mongoose from "mongoose";
 import env from 'dotenv';
 import apiRoutes from './routes/api.js';
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 
 
 env.config();
