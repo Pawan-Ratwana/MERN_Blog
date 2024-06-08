@@ -14,6 +14,7 @@ function SignUp() {
   // Function to handle changes in form inputs
   const handleChange = async (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() }); // Update form data
+    setErrorMessage(null); // Clear error message on input change
   }
 
   // Function to handle form submission
@@ -56,6 +57,8 @@ function SignUp() {
     } catch (err) {
       setErrorMessage('Something went wrong. Please try again later.'); // Display generic error message
       setLoading(false); // Set loading state to false
+    }finally {
+      setLoading(false); // Set loading state to false after request completes
     }
   }
 
@@ -109,7 +112,7 @@ function SignUp() {
               }
 
               {/* Sign up button with loading spinner */}
-              <Button gradientDuoTone='purpleToPink' type='submit' disabled={loading}>
+              <Button gradientDuoTone='purpleToPink' type='submit' disabled={loading ||errorMessage}>
               {loading ?(
                 <>
                 <Spinner size='sm'/>
