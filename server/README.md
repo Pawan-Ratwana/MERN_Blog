@@ -3,3 +3,4 @@
 3. npm i mongoose
 4. npm i dotenv
 5. npm i bcryptjs
+6. npm i jsonwebtoken
